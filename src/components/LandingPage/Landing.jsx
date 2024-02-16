@@ -1,15 +1,21 @@
+import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import React from "react";
 
 function Landing() {
   return (
-    <div className="w-full h-screen bg-[#F1F1F1] pt-1">
+    <div data-scroll data-scroll-section data-scroll-speed="-.3" className="w-full h-screen bg-[#F1F1F1] pt-1">
       <div className="textstructure mt-52 px-20">
         {["We Create", "Eye-Opening", "Presentation"].map((text, index) => (
           <div className="masker" key={index}>
             <div className="w-fit flex items-end overflow-hidden">
               {index === 1 && (
-                <div className="w-[8vw] h-[5vw] bg-green-500 relative mr-[1vw] rounded-md"></div>
+                <motion.div
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: "8vw", opacity: 1 }}
+                  transition={{ ease: [0.76, 0, 0.24, 1], duration: 1 }}
+                  className="w-[8vw] h-[5vw] bg-green-500 relative mr-[1vw] rounded-md"
+                ></motion.div>
               )}
               <h1 className="uppercase text-[7vw] leading-[6vw] tracking-tighter font-['Founders Grotesk X-Cond'] font-bold">
                 {text}
